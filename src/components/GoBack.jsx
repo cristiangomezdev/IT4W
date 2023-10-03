@@ -7,11 +7,18 @@ const GoBack = () => {
   const handleGoBack = () => {
     navigate(-1)
   };
-
+  const handleGoHome = () => {
+    navigate('/')
+  };
   return (
+    <>
+    <button onClick={handleGoHome} className="bg-gray-500 opacity-50 hover:opacity-100 hover:bg-black-700 text-white font-bold py-2 px-4 rounded">
+      Go Home
+    </button>
     <button onClick={handleGoBack} className="bg-gray-500 opacity-50 hover:opacity-100 hover:bg-black-700 text-white font-bold py-2 px-4 rounded">
       Go Back
     </button>
+    </>
   );
 };
 
