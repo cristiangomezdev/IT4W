@@ -7,7 +7,8 @@ export const movieData = {
   description:
     "The film that started the Star Wars saga. Luke Skywalker embarks on a journey to defeat the Galactic Empire.",
   director: "George Lucas",
-  imageUrl: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/7937/7937192_so.jpg",
+  imageUrl:
+    "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/7937/7937192_so.jpg",
 };
 export const Main = () => {
   const [data, setData] = useState(null);
@@ -21,7 +22,7 @@ export const Main = () => {
           ""
         );
         setData(result);
-        console.log(result)
+        console.log(result);
       } catch (error) {
         console.error(error);
       }
@@ -35,22 +36,29 @@ export const Main = () => {
   }
   return (
     <>
-    <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
-    <div className="flex justify-center items-center min-h-screen bg-gray-900">
-        <div className="max-w-md">
-          {
-            data.results ? (data.results.map((movie)=><Card
-            
-            title={movie.title}
-            episode_id={movie.episode_id}
-            description={movie.description}
-            director={movie.director}
-            imageUrl={movie.imageUrl}
-            key={movie.episode_id}
-          />)):(<h1>1</h1>)
-          }
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <div className="bg-gray-900 min-h-screen">
+        <img className="w-[320px] mx-auto mt-5 mb-4" src={`/assets/logo.png`} alt="" />
+        <div className="max-w-screen-xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {data.results ? (
+              data.results.map((movie) => (
+                <div key={movie.episode_id}>
+                  <Card
+                    title={movie.title}
+                    episode_id={movie.episode_id}
+                    description={movie.description}
+                    director={movie.director}
+                    key={movie.episode_id}
+                  />
+                </div>
+              ))
+            ) : (
+              <h1>Loading...</h1>
+            )}
+          </div>
         </div>
       </div>
     </>
