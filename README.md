@@ -14,5 +14,5 @@ Además, se incorporaron botones de retroceso y de regreso a la página principa
 Esta funcionalidad mejora la experiencia del usuario al permitir una navegación intuitiva y fluida.
 
 Para realizar las solicitudes a la API de Star Wars, se empleó la biblioteca Axios. 
-Además, se externalizó el manejo de las solicitudes HTTP mediante la creación de una librería llamada HTTPAdapter,
-lo que contribuye a un código más organizado y mantenible.
+Además, se externalizó el manejo de las solicitudes HTTP mediante la creación de un adaptador HTTPAdapter,
+lo que contribuye a un código más organizado y mantenible, en caso de sustitucion.
