@@ -38,7 +38,7 @@ export const Film = () => {
         <Card
           title={data.title}
           episode_id={data.episode_id}
-          description={data.description}
+          description={data.opening_crawl}
           director={data.director}
           url={data.url}
           key={data.episode_id}
