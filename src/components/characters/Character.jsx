@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import HTTPAdapter from "../../api/HTTPAdapter";
+
+import { Link } from "react-router-dom";
 
 const Character = ({ url, index }) => {
   const id = url.split("/").filter(Boolean).pop();
   return (
-    <a key={index} href={""} className=" space-x-4 mb-2">
+    <Link key={index} to={`/character/${id}`} className="space-x-4 mb-2 ">
       <img
         src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-        className="h-20 w-20 rounded-full object-cover"
+        className="h-20 w-20 rounded-full object-cover hover:scale-105 transition duration-300 ease-in-out"
       />
-    </a>
+    </Link>
   );
 };
 

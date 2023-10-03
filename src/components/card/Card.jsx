@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Card = ({ title, episode_id, description, director }) => {
-
+const Card = ({ title, episode_id, description, director, url }) => {
+  const id = url.split("/").filter(Boolean).pop();
   return (
-    <Link to={`film/${episode_id}`}>
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl gap-2 mt-4 hover:scale-105 " >
+    <Link to={`/film/${id}`}>
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl gap-2 mt-4 hover:scale-105 transition duration-300 ease-in-out" >
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <img
             className="h-full w-full object-cover md:w-48"
-            src={`/assets/films/${episode_id}.jpg`}
+            src={`/assets/films/${title}.jpg`}
             alt={title}
           />
         </div>

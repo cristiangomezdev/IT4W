@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import HTTPAdapter from "../api/HTTPAdapter";
 import Card from "../components/card/Card";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Characters from "../components/characters/Characters";
+import GoBack from "../components/GoBack";
+import { Loading } from "../components/Loading";
 
 export const Film = () => {
   const [data, setData] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
+  if (id > 6) navigate("/404");
   useEffect(() => {
     async function fetchData() {
       try {
@@ -16,7 +20,6 @@ export const Film = () => {
           ""
         );
         setData(result);
-        console.log(result);
       } catch (error) {
         console.error(error);
       }
@@ -26,19 +29,21 @@ export const Film = () => {
   }, []);
 
   if (data === null) {
-    return <h1>1</h1>;
+    return <Loading size={35} />;
   }
   return (
     <>
       <div className="grid grid-cols-1  gap-4">
+        <GoBack />
         <Card
           title={data.title}
           episode_id={data.episode_id}
           description={data.description}
           director={data.director}
+          url={data.url}
           key={data.episode_id}
         />
-        <Characters characters={data.characters}/>
+        <Characters characters={data.characters} />
       </div>
     </>
   );

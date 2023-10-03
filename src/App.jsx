@@ -3,6 +3,8 @@ import { Films } from './pages/Films';
 import { Film } from './pages/Film';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import  Layout  from './components/layout/Layout';
+import { Character } from './pages/Character';
+import NotFound from './pages/NotFound';
  const App = () => {
   return (
     <BrowserRouter>
@@ -10,7 +12,9 @@ import  Layout  from './components/layout/Layout';
       <Route path="/" element={<Layout/>}>
         <Route index element={<Films/>} />
         <Route path="film/:id" element={<Film/>} />
-        <Route path="about" element={<h1>1</h1>} />
+        <Route path="character/:id" element={<Character/>} />
+        <Route path="*" element={<NotFound/>} />
+        <Route path="/404" element={<NotFound/>} />
       </Route>
     </Routes>
   </BrowserRouter>
