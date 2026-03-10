@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import {images} from '../../images'; 
 
 const CharacterCard = ({ character }) => {
   const {
@@ -12,13 +13,15 @@ const CharacterCard = ({ character }) => {
     birth_year,
     gender,
   } = character;
-  const { id } = useParams();
+    const { id } = useParams();
+    const imageUrl = images[id] || "https://via.placeholder.com/150?text=No+Image";
+  
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <img
-            src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} 
+            src={imageUrl} 
             alt={name}
             className="h-full w-full object-cover md:w-48"
           />
